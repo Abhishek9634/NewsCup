@@ -1,0 +1,2 @@
+# NewsCup
+Swift 3 +
