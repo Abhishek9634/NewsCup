@@ -16,7 +16,6 @@
 		9FAADC75219C6D0800B7DD30 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC6C219C6D0800B7DD30 /* CollectionViewCell.swift */; };
 		9FAADC76219C6D0800B7DD30 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC6E219C6D0800B7DD30 /* ImageView.swift */; };
 		9FAADC77219C6D0800B7DD30 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC70219C6D0800B7DD30 /* TableViewCell.swift */; };
-		9FAADC78219C6D0800B7DD30 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC72219C6D0800B7DD30 /* TextField.swift */; };
 		9FAADC79219C6D0900B7DD30 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC74219C6D0800B7DD30 /* Loader.swift */; };
 		9FAADC88219C6D2700B7DD30 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC7B219C6D2700B7DD30 /* NavigationBar.swift */; };
 		9FAADC89219C6D2700B7DD30 /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC7C219C6D2700B7DD30 /* UIViewController+Error.swift */; };
@@ -86,7 +85,6 @@
 		9FAADC6C219C6D0800B7DD30 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9FAADC6E219C6D0800B7DD30 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		9FAADC70219C6D0800B7DD30 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		9FAADC72219C6D0800B7DD30 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		9FAADC74219C6D0800B7DD30 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		9FAADC7B219C6D2700B7DD30 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9FAADC7C219C6D2700B7DD30 /* UIViewController+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				9FAADC6B219C6D0800B7DD30 /* CollectionCell */,
 				9FAADC6D219C6D0800B7DD30 /* ImageView */,
 				9FAADC6F219C6D0800B7DD30 /* TableCell */,
-				9FAADC71219C6D0800B7DD30 /* TextField */,
 				9FAADC73219C6D0800B7DD30 /* Loader */,
 			);
 			path = Common;
@@ -268,14 +265,6 @@
 				9FAADC70219C6D0800B7DD30 /* TableViewCell.swift */,
 			);
 			path = TableCell;
-			sourceTree = "<group>";
-		};
-		9FAADC71219C6D0800B7DD30 /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				9FAADC72219C6D0800B7DD30 /* TextField.swift */,
-			);
-			path = TextField;
 			sourceTree = "<group>";
 		};
 		9FAADC73219C6D0800B7DD30 /* Loader */ = {
@@ -573,7 +562,6 @@
 				9FAADC8B219C6D2700B7DD30 /* UIView+Helper.swift in Sources */,
 				9FAADC90219C6D2700B7DD30 /* Colors.swift in Sources */,
 				9FAADC88219C6D2700B7DD30 /* NavigationBar.swift in Sources */,
-				9FAADC78219C6D0800B7DD30 /* TextField.swift in Sources */,
 				9FAADC8C219C6D2700B7DD30 /* AppUtility.swift in Sources */,
 				9FAADC54219C4E0F00B7DD30 /* AppDelegate.swift in Sources */,
 				9FAADC91219C6D2700B7DD30 /* Date+Helper.swift in Sources */,
