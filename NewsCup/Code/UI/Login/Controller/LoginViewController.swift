@@ -12,6 +12,10 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(Locale.current.regionCode)
+//        if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
+//            print(countryCode)
+//        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		616BB8ED3987AEEA457724CD /* Pods_NewsCup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6842C879EB1D2326B5B7C782 /* Pods_NewsCup.framework */; };
 		9F05A38321C1200200ACF0A8 /* Headlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F05A38221C1200200ACF0A8 /* Headlines.json */; };
+		9F05A38721C12C5100ACF0A8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F05A38621C12C5100ACF0A8 /* Home.storyboard */; };
+		9F05A38A21C12ECB00ACF0A8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F05A38921C12ECB00ACF0A8 /* HomeViewController.swift */; };
 		9F0BFB21219C7C590039CB5A /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BFB20219C7C590039CB5A /* NewsRouter.swift */; };
 		9FAADC54219C4E0F00B7DD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC53219C4E0F00B7DD30 /* AppDelegate.swift */; };
 		9FAADC56219C4E0F00B7DD30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC55219C4E0F00B7DD30 /* LoginViewController.swift */; };
@@ -78,6 +80,8 @@
 		7EB3E16073D7F1F2F50FBA90 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		88B36806804093A5DC90CC25 /* Pods-Model.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.release.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.release.xcconfig"; sourceTree = "<group>"; };
 		9F05A38221C1200200ACF0A8 /* Headlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Headlines.json; sourceTree = "<group>"; };
+		9F05A38621C12C5100ACF0A8 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9F05A38921C12ECB00ACF0A8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9F0BFB20219C7C590039CB5A /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
 		9FAADC50219C4E0F00B7DD30 /* NewsCup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsCup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAADC53219C4E0F00B7DD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,8 +176,18 @@
 		9F05A38521C1282D00ACF0A8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9F05A38621C12C5100ACF0A8 /* Home.storyboard */,
+				9F05A38821C12E5700ACF0A8 /* Controller */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9F05A38821C12E5700ACF0A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9F05A38921C12ECB00ACF0A8 /* HomeViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9F0BFB1D219C76E30039CB5A /* Controller */ = {
@@ -263,8 +277,8 @@
 		9FAADC68219C6C9400B7DD30 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9F05A38521C1282D00ACF0A8 /* Home */,
 				9FAADC69219C6CEF00B7DD30 /* Login */,
+				9F05A38521C1282D00ACF0A8 /* Home */,
 				9FAADC6A219C6D0800B7DD30 /* Common */,
 			);
 			path = UI;
@@ -497,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FAADC5E219C4E1200B7DD30 /* LaunchScreen.storyboard in Resources */,
+				9F05A38721C12C5100ACF0A8 /* Home.storyboard in Resources */,
 				9FAADC5B219C4E1200B7DD30 /* Assets.xcassets in Resources */,
 				9FAADC59219C4E0F00B7DD30 /* Login.storyboard in Resources */,
 				9F05A38321C1200200ACF0A8 /* Headlines.json in Resources */,
@@ -613,6 +628,7 @@
 				9FAADC88219C6D2700B7DD30 /* NavigationBar.swift in Sources */,
 				9FAADC8C219C6D2700B7DD30 /* AppUtility.swift in Sources */,
 				9FAADC54219C4E0F00B7DD30 /* AppDelegate.swift in Sources */,
+				9F05A38A21C12ECB00ACF0A8 /* HomeViewController.swift in Sources */,
 				9FAADC91219C6D2700B7DD30 /* Date+Helper.swift in Sources */,
 				9FAADC79219C6D0900B7DD30 /* Loader.swift in Sources */,
 				9FAADC75219C6D0800B7DD30 /* CollectionViewCell.swift in Sources */,
@@ -801,7 +817,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nickelfox.NewsCup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -822,7 +838,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nickelfox.NewsCup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
