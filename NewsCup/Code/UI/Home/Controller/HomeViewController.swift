@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Model
 
 class HomeViewController: UIViewController {
 
@@ -17,6 +18,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        Headline.fetchParams { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                self?.handle(error: error)
+            }
+        }
     }
 
 }
