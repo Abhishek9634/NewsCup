@@ -14,7 +14,9 @@ struct KeychainKey {
 }
 
 public struct APIConfig {
-
-    
+    static let APIKey = "7b1568b218554e659e942bfed4c4e20d"
 }
 
+public struct APIURL {
+    static let Base = "https://newsapi.org/v2"
+}

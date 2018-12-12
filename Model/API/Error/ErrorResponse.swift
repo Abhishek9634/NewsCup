@@ -13,6 +13,7 @@ import JSONParsing
 private let errorKey = "error"
 
 public struct ErrorResponse: ErrorResponseProtocol {
+    
     public var domain: String {
         return ""
     }
@@ -26,6 +27,7 @@ public struct ErrorResponse: ErrorResponseProtocol {
     
     public var code: Int
     public let messages: [String]
+    
     public var message: String {
         return compiledErrorMessage
     }

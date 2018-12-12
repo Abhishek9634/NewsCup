@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		616BB8ED3987AEEA457724CD /* Pods_NewsCup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6842C879EB1D2326B5B7C782 /* Pods_NewsCup.framework */; };
+		9F0BFB21219C7C590039CB5A /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BFB20219C7C590039CB5A /* NewsRouter.swift */; };
 		9FAADC54219C4E0F00B7DD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC53219C4E0F00B7DD30 /* AppDelegate.swift */; };
 		9FAADC56219C4E0F00B7DD30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAADC55219C4E0F00B7DD30 /* LoginViewController.swift */; };
 		9FAADC59219C4E0F00B7DD30 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAADC57219C4E0F00B7DD30 /* Login.storyboard */; };
@@ -75,6 +76,7 @@
 		6842C879EB1D2326B5B7C782 /* Pods_NewsCup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsCup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB3E16073D7F1F2F50FBA90 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		88B36806804093A5DC90CC25 /* Pods-Model.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.release.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.release.xcconfig"; sourceTree = "<group>"; };
+		9F0BFB20219C7C590039CB5A /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
 		9FAADC50219C4E0F00B7DD30 /* NewsCup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsCup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAADC53219C4E0F00B7DD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FAADC55219C4E0F00B7DD30 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,24 @@
 				9FAADC55219C4E0F00B7DD30 /* LoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9F0BFB1E219C7C150039CB5A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9FAADCAF219C6F3500B7DD30 /* BaseRouter.swift */,
+				9F0BFB20219C7C590039CB5A /* NewsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9F0BFB1F219C7C270039CB5A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9FAADCB0219C6F3500B7DD30 /* ErrorResponse.swift */,
+				9FAADCAC219C6F3500B7DD30 /* APIError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		9FAADC47219C4E0F00B7DD30 = {
@@ -335,12 +355,11 @@
 		9FAADCAB219C6F3500B7DD30 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				9FAADCAC219C6F3500B7DD30 /* APIError.swift */,
 				9FAADCAD219C6F3500B7DD30 /* NewsCupAPIClient.swift */,
 				9FAADCAE219C6F3500B7DD30 /* APIConfig.swift */,
-				9FAADCAF219C6F3500B7DD30 /* BaseRouter.swift */,
-				9FAADCB0219C6F3500B7DD30 /* ErrorResponse.swift */,
 				9FAADCB1219C6F3500B7DD30 /* AuthHeaders.swift */,
+				9F0BFB1F219C7C270039CB5A /* Error */,
+				9F0BFB1E219C7C150039CB5A /* Router */,
 				9FAADCB2219C6F3500B7DD30 /* Parsing */,
 			);
 			path = API;
@@ -585,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F0BFB21219C7C590039CB5A /* NewsRouter.swift in Sources */,
 				9FAADCB6219C6F3600B7DD30 /* CrashLogger.swift in Sources */,
 				9FAADCBB219C6F3600B7DD30 /* BaseRouter.swift in Sources */,
 				9FAADCBD219C6F3600B7DD30 /* AuthHeaders.swift in Sources */,
