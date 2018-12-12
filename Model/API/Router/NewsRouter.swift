@@ -27,23 +27,23 @@ public enum NewsRouter: BaseRouter {
     public var path: String {
         switch self {
         case .everything:
-            return ""
+            return "/v2/everything"
         case .sources:
-            return ""
+            return "/v2/sources"
         case .topHeadlines:
-            return ""
+            return "/v2/top-headlines"
         }
     }
     
     public var params: [String: Any] {
-        var params: [String: Any] = ["API_KEY": APIConfig.APIKey]
+        var params: [String: Any] = ["apiKey": APIConfig.APIKey]
         switch self {
         case .everything(let query):
-            params["q"] = ""
-        case .sources:
-            params["q"] = ""
-        case .topHeadlines:
-            params["q"] = ""
+            params["q"] = query
+        case .sources(let query):
+            params["q"] = query
+        case .topHeadlines(let query):
+            params["q"] = query
         }
         return params
     }

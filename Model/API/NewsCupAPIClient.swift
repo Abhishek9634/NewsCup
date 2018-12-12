@@ -8,6 +8,7 @@
 
 import Foundation
 import FoxAPIKit
+import JSONParsing
 
 class NewsCupAPIClient: APIClient<AuthHeaders, ErrorResponse> {
     
@@ -27,3 +28,27 @@ class NewsCupAPIClient: APIClient<AuthHeaders, ErrorResponse> {
 	}
 }
 
+extension NewsCupAPIClient {
+    
+    public func requestOffline<T: JSONParseable>(jsonfileName: String,
+                                                 completion: @escaping (_ result: APIResult<T>) -> Void) {
+        
+        guard let filePath = Bundle.main.url(forResource: jsonfileName,
+                                             withExtension: "json") else {
+            completion(.failure(APIError.custom(message: "File Not Found")))
+            return
+        }
+        
+        do {
+            let data = try Data.init(contentsOf: filePath)
+            let json = try JSON(data: data)
+            let result = try T.parse(json)
+            completion(.success(result))
+        } catch let error as AnyError {
+            completion(.failure(error))
+        } catch {
+            completion(.failure(APIError.custom(message: "Error while reading file")))
+        }
+    }
+    
+}

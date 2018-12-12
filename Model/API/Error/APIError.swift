@@ -9,13 +9,18 @@
 import AnyErrorKit
 
 public enum APIError: AnyError {
-	case transactionFailed
+	
+    case unknown
+    case custom(message: String)
 	
 	public var code: Int { return 0 }
 	public var domain: String { return "API Error" }
 	public var message: String {
 		switch self {
-		case .transactionFailed: return "Transaction failed. Please tray again."
+		case .unknown:
+            return "Something went wrong. Please tray again."
+        case .custom(let message):
+            return message
 		}
 	}
 }

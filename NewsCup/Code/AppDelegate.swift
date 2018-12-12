@@ -47,13 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func showRootView() {
-        guard let window = self.window else { return }
+//        guard let window = self.window else { return }
 //        window.rootViewController = RootViewController.newInstace
 //        window.makeKeyAndVisible()
     }
     
     func setStatusBarColor() {
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
     }
 }
 

@@ -27,15 +27,15 @@ extension NSAttributedString {
 
 extension String {
     
-    func isEmptyHTMLContent() -> Bool {
-        var r = Range(self.startIndex..<self.endIndex)
-        var str = self.copy() as! String
-        while let range = str.range(of: "<[^>]+>", options: .regularExpression) {
-            r = range
-            str = str.replacingCharacters(in: r, with: "")
-        }
-        
-        str = str.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        return str.isEmpty
-    }
+//    func isEmptyHTMLContent() -> Bool {
+//        var r = Range(self.startIndex..<self.endIndex)
+//        var str = self.copy() as! String
+//        while let range = str.range(of: "<[^>]+>", options: .regularExpression) {
+//            r = range
+//            str = str.replacingCharacters(in: r, with: "")
+//        }
+//
+//        str = str.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+//        return str.isEmpty
+//    }
 }
