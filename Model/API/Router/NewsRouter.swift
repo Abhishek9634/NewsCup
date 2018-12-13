@@ -13,7 +13,11 @@ public enum NewsRouter: BaseRouter {
     
     case everything(query: String)
     case sources(query: String)
-    case topHeadlines(query: String)
+    case topHeadlines(page: Int,
+                      pageSize: Int,
+                      searchQuery: String?,
+                      categories: [String],
+                      countries: [String])
     
     public var method: HTTPMethod {
         switch self {
@@ -42,8 +46,25 @@ public enum NewsRouter: BaseRouter {
             params["q"] = query
         case .sources(let query):
             params["q"] = query
-        case .topHeadlines(let query):
-            params["q"] = query
+        case .topHeadlines(let page,
+                           let pageSize,
+                           let searchQuery,
+                           let categories,
+                           let countries):
+            params["page"] = page
+            params["pageSize"] = pageSize
+            
+            if !categories.isEmpty {
+                params["categories"] = categories.joined(separator: ",")
+            }
+            
+            if !countries.isEmpty {
+                params["countries"] = countries.joined(separator: ",")
+            }
+            
+            if let searchQuery = searchQuery {
+                params["q"] = searchQuery
+            }
         }
         return params
     }

@@ -14,11 +14,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var news: [Any] = []
+    private var currentPage: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-        Headline.fetchParams { [weak self] (result) in
+        self.setupSearchController()
+//        Headline.fetchParams { [weak self] (result) in
+//            switch result {
+//            case .success(let response):
+//                print(response)
+//            case .failure(let error):
+//                self?.handle(error: error)
+//            }
+//        }
+        
+        Headline.fetchTopHeadlines(categories: [],
+                                   countries: []) { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -58,6 +70,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    
+    private func setupSearchController() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        self.navigationItem.searchController = search
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+//        guard let text = searchController.searchBar.text,
+//            !text.isEmpty else { return }
+//        self.tableView.reloadData()
     }
     
 }

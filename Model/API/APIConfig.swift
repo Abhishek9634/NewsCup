@@ -18,5 +18,5 @@ public struct APIConfig {
 }
 
 public struct APIURL {
-    static let Base = "https://newsapi.org/v2"
+    static let Base = "https://newsapi.org"
 }

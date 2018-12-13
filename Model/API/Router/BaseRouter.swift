@@ -28,7 +28,7 @@ extension BaseRouter {
     }
     
     public var baseUrl: URL {
-        return URL(string: "")!
+        return URL(string: APIURL.Base)!
     }
     
     public var headers: [String: String] {

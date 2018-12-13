@@ -10,6 +10,8 @@ import Foundation
 import FoxAPIKit
 import JSONParsing
 
+public let DefaultPageSize = 20
+
 class NewsCupAPIClient: APIClient<AuthHeaders, ErrorResponse> {
     
     static let shared = NewsCupAPIClient()
