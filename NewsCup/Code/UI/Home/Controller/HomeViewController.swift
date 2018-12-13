@@ -16,19 +16,19 @@ class HomeViewController: UIViewController {
     private var news: [TopNewsCellModel] = []
     private var currentPage: Int = 0
     
+    private struct Segue {
+        static let Filter = "FilterViewSegueId"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
         self.setupSearchController()
         self.fetchNews()
-//        Headline.fetchParams { [weak self] (result) in
-//            switch result {
-//            case .success(let response):
-//                print(response)
-//            case .failure(let error):
-//                self?.handle(error: error)
-//            }
-//        }
+    }
+    
+    @IBAction func filterAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: Segue.Filter, sender: nil)
     }
     
     private func fetchNews() {
