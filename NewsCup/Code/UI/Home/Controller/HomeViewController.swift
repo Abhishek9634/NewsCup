@@ -13,13 +13,14 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var news: [Any] = []
+    private var news: [TopNewsCellModel] = []
     private var currentPage: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
         self.setupSearchController()
+        self.fetchNews()
 //        Headline.fetchParams { [weak self] (result) in
 //            switch result {
 //            case .success(let response):
@@ -28,12 +29,19 @@ class HomeViewController: UIViewController {
 //                self?.handle(error: error)
 //            }
 //        }
-        
-        Headline.fetchTopHeadlines(categories: [],
-                                   countries: []) { [weak self] (result) in
+    }
+    
+    private func fetchNews() {
+        self.showLoader()
+        Headline.fetchTopHeadlines(categories: ["general"],
+                                   countries: ["us"]) { [weak self] (result) in
+            self?.hideLoader()
             switch result {
             case .success(let response):
-                print(response)
+                self?.news = response.list.map {
+                    TopNewsCellModel(article: $0)
+                }
+                self?.tableView.reloadData()
             case .failure(let error):
                 self?.handle(error: error)
             }
@@ -45,11 +53,11 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func setupView() {
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.register(TopNewsTableViewCell.defaultNib,
+                                forCellReuseIdentifier: TopNewsTableViewCell.defaultReuseIdentifier)
     }
     
     func tableView(_ tableView: UITableView,
@@ -64,12 +72,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.news.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: TopNewsTableViewCell.defaultReuseIdentifier
+        ) as! TopNewsTableViewCell
+        cell.item = self.news[indexPath.row]
+        return cell
     }
     
 }

@@ -55,11 +55,11 @@ public enum NewsRouter: BaseRouter {
             params["pageSize"] = pageSize
             
             if !categories.isEmpty {
-                params["categories"] = categories.joined(separator: ",")
+                params["category"] = categories.joined(separator: ",")
             }
             
             if !countries.isEmpty {
-                params["countries"] = countries.joined(separator: ",")
+                params["country"] = countries.joined(separator: ",")
             }
             
             if let searchQuery = searchQuery {
@@ -74,6 +74,11 @@ public enum NewsRouter: BaseRouter {
     }
     
     public var keypathToMap: String? {
-        return nil
+        switch self {
+        case .topHeadlines:
+            return "articles"
+        default:
+            return nil
+        }
     }
 }
