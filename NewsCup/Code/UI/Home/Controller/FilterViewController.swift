@@ -43,6 +43,15 @@ class FilterViewController: UIViewController {
     @IBAction func backAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func clearAction(_ sender: UIButton) {
+        self.viewModel.clear()
+    }
+    
+    @IBAction func applyAction(_ sender: UIButton) {
+     // TODO
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
