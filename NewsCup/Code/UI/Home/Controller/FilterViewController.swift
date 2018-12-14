@@ -24,6 +24,9 @@ class FilterViewController: UIViewController {
     private func setupModel() {
         
         self.viewModel.attributesReloadHandler = {
+            self.valueTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                            at: .top,
+                                            animated: false)
             self.attributeTableView.reloadData()
         }
         
@@ -45,6 +48,7 @@ class FilterViewController: UIViewController {
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func setupView() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.attributeTableView.delegate = self
         self.attributeTableView.dataSource = self
         self.valueTableView.delegate = self

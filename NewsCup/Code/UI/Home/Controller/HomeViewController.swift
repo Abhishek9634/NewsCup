@@ -27,6 +27,11 @@ class HomeViewController: UIViewController {
         self.fetchNews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     @IBAction func filterAction(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: Segue.Filter, sender: nil)
     }
@@ -53,7 +58,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func setupView() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(TopNewsTableViewCell.defaultNib,
