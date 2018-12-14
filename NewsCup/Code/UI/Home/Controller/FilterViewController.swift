@@ -17,6 +17,7 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
         self.setupModel()
     }
     
@@ -66,7 +67,7 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
         case self.attributeTableView:
             return self.viewModel.attributesCount
         case self.valueTableView:
-            return 0
+            return self.viewModel.valuesCount()
         default:
             return 0
         }
@@ -74,22 +75,32 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.viewModel.item(at: indexPath.row)
         switch tableView {
         case self.attributeTableView:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: FilterAttributeTableViewCell.defaultReuseIdentifier
             ) as! FilterAttributeTableViewCell
-            cell.item = model
+            cell.item = self.viewModel.item(at: indexPath.row)
             return cell
         case self.valueTableView:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: FilterValueTableViewCell.defaultReuseIdentifier
             ) as! FilterValueTableViewCell
-            cell.item = model.values[indexPath.row]
+            cell.item = self.viewModel.value(at: indexPath.row)
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView {
+        case self.attributeTableView:
+            self.viewModel.didSelectAttribute(at: indexPath.row)
+        case self.valueTableView:
+            self.viewModel.didSelectValue(at: indexPath.row)
+        default:
+            break
         }
     }
     

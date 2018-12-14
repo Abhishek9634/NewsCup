@@ -124,9 +124,15 @@ extension FilterViewModel {
         return index
     }
     
-    func valuesCountAtCurrentIndex() -> Int {
+    // VALUES COUNT AT CURRENT INDEX aka SELECTED INDEX
+    func valuesCount() -> Int {
         let model = self.items[self.currentAttributeIndex]
         return model.values.count
+    }
+    
+    func value(at index: Int) -> FilterValue {
+        let model = self.items[self.currentAttributeIndex]
+        return model.values[index]
     }
     
     func clear() {

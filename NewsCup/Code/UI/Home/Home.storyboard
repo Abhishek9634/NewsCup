@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" constant="80" id="VDy-o0-Ij1"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterAttributeTableViewCell" id="3Lh-tc-rSD" customClass="FilterAttributeTableViewCell" customModule="NewsCup" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterAttributeTableViewCell" id="3Lh-tc-rSD" customClass="FilterAttributeTableViewCell" customModule="NewsCup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Lh-tc-rSD" id="aVz-AR-qPn">
@@ -46,6 +46,9 @@
                                                 <constraint firstItem="dgh-d3-1g2" firstAttribute="leading" secondItem="aVz-AR-qPn" secondAttribute="leading" constant="10" id="V9d-o4-0mu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="dgh-d3-1g2" id="KWq-Wf-PXx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,7 +56,7 @@
                                 <rect key="frame" x="80" y="0.0" width="295" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterValueTableViewCell" id="1Ys-8j-xPA" customClass="FilterValueTableViewCell" customModule="NewsCup" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterValueTableViewCell" id="1Ys-8j-xPA" customClass="FilterValueTableViewCell" customModule="NewsCup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="295" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ys-8j-xPA" id="Lzf-fi-dOS">
@@ -74,6 +77,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="Y3a-kq-xPC" secondAttribute="trailing" constant="10" id="zQp-ln-fX5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Y3a-kq-xPC" id="buA-mD-8wP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

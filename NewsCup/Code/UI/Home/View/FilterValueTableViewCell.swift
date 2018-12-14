@@ -10,6 +10,8 @@ import UIKit
 
 class FilterValueTableViewCell: TableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -18,4 +20,9 @@ class FilterValueTableViewCell: TableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    override func configure(_ item: Any?) {
+        guard let model = item as? FilterValue else { return }
+        self.titleLabel.text = model.value
+        self.titleLabel.textColor = model.isSelected ? .blue : .black
+    }
 }
