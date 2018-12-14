@@ -60,6 +60,7 @@ class FilterViewModel {
     private var items: [FilterModel] = []
     var attributesReloadHandler: FilterViewModelReloadHandler = { }
     var valuesReloadHandler: FilterViewModelReloadHandler = { }
+    var filters: [String: String] = [:]
     
     init() { }
     
@@ -86,7 +87,7 @@ class FilterViewModel {
             FilterCountry(code: $0.code)
         }
         
-        self.items = [FilterModel(attribute: "Category", values: categories),
+        self.items = [FilterModel(attribute: "Category", values: categories, isSelected: true),
                       FilterModel(attribute: "Country", values: countries)]
         
         self.reloadAll()
@@ -136,10 +137,12 @@ extension FilterViewModel {
     }
     
     func clear() {
+        self.filters.removeAll()
         self.items.forEach { model in
             model.isSelected = false
             model.values.forEach { $0.isSelected = false }
         }
+        self.reloadAll()
     }
     
     func didSelectAttribute(at index: Int) {
@@ -152,6 +155,12 @@ extension FilterViewModel {
         let model = self.items[self.currentAttributeIndex]
         model.values.forEach { $0.isSelected = false }
         model.values[index].isSelected = true
+        
+        // HANDLE FILTERS
+        self.filters[model.attribute] = model.values[index].value
+        
+        // RELOAD
         self.valuesReloadHandler()
     }
+    
 }
