@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     
     private struct Segue {
         static let Filter = "FilterViewSegueId"
+        static let NewsDeatil = "TopNewsDetailViewSegueId"
     }
     
     override func viewDidLoad() {
@@ -101,6 +102,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.news[indexPath.row]
+        self.performSegue(withIdentifier: Segue.NewsDeatil, sender: model)
+    }
 }
 
 extension HomeViewController: UISearchResultsUpdating {
@@ -125,6 +130,10 @@ extension HomeViewController {
         switch (segue.identifier, segue.destination, sender) {
         case (Segue.Filter, let vc as FilterViewController, _):
             vc.delegate = self
+        case (Segue.NewsDeatil,
+              let vc as NewsDetailViewController,
+              let model as TopNewsCellModel):
+            vc.news = model
         default:
             break
         }
