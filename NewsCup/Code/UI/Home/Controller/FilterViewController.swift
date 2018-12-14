@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol FilterViewControllerDelegate: class {
+    func applyFilters(filters: [String: String])
+}
+
 class FilterViewController: UIViewController {
 
     @IBOutlet weak var attributeTableView: UITableView!
     @IBOutlet weak var valueTableView: UITableView!
     
+    weak var delegate: FilterViewControllerDelegate?
     private var viewModel = FilterViewModel()
     
     override func viewDidLoad() {
@@ -49,7 +54,7 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func applyAction(_ sender: UIButton) {
-     // TODO
+        self.delegate?.applyFilters(filters: self.viewModel.filters)
         self.navigationController?.popViewController(animated: true)
     }
 }

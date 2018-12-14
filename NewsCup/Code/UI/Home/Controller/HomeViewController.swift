@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var news: [TopNewsCellModel] = []
+    private var filters: [String: String] = [:]
     private var currentPage: Int = 0
     
     private struct Segue {
@@ -37,9 +38,21 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchNews() {
+        
+        var categories: [String] = ["general"]
+        var countries: [String] = ["us"]
+        
+        if let category = self.filters["Category"] {
+            categories = [category]
+        }
+        
+        if let country = self.filters["Country"] {
+            countries = [country]
+        }
+        
         self.showLoader()
-        Headline.fetchTopHeadlines(categories: ["general"],
-                                   countries: ["us"]) { [weak self] (result) in
+        Headline.fetchTopHeadlines(categories: categories,
+                                   countries: countries) { [weak self] (result) in
             self?.hideLoader()
             switch result {
             case .success(let response):
@@ -104,4 +117,31 @@ extension HomeViewController: UISearchResultsUpdating {
 //        self.tableView.reloadData()
     }
     
+}
+
+extension HomeViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch (segue.identifier, segue.destination, sender) {
+        case (Segue.Filter, let vc as FilterViewController, _):
+            vc.delegate = self
+        default:
+            break
+        }
+        super.prepare(for: segue, sender: sender)
+    }
+}
+
+extension HomeViewController: FilterViewControllerDelegate {
+    
+    func applyFilters(filters: [String: String]) {
+        if !self.news.isEmpty {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                       at: .top,
+                                       animated: false)
+        }
+        
+        self.filters = filters
+        self.fetchNews()
+    }
 }
