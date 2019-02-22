@@ -25,7 +25,7 @@ public struct Source: JSONParseable {
                           name: json["name"]^,
                           url: json["url"]^,
                           category: json["category"]^,
-                          desc: json["desc"]^,
+                          desc: json["description"]^,
                           language: json["language"]^,
                           country: json["country"]^)
     }

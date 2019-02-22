@@ -24,6 +24,7 @@ class SourceTableViewCell: TableViewCell {
     
     override func configure(_ item: Any?) {
         guard let model = item as? Source else { return }
+        print(model.url)
         self.imgView.setImageFromUrl(model.url)
         self.titleLabel.text = model.name
     }

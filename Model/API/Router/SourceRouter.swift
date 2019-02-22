@@ -42,8 +42,8 @@ public enum SourceRouter: BaseRouter {
     
     public var keypathToMap: String? {
         switch self {
-        default:
-            return nil
+        case .fetchSources:
+            return "sources"
         }
     }
 }
