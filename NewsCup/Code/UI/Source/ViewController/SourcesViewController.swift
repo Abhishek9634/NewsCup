@@ -28,6 +28,7 @@ class SourcesViewController: UIViewController {
     
     func setuptableView() {
         
+        // REGISTER CELL
         self.tableView.register(SourceTableViewCell.defaultNib,
                                 forCellReuseIdentifier: SourceTableViewCell.defaultReuseIdentifier)
         
