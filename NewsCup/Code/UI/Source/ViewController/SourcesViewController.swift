@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Model
+import SafariServices
 
 class SourcesViewController: UIViewController {
 
@@ -43,6 +44,7 @@ class SourcesViewController: UIViewController {
             .modelSelected(Source.self)
             .subscribe(onNext: { model in
             print("\(model) was selected")
+            self.openSafari(urlString: model.url)
         }).disposed(by: self.disaposeBag)
         
         
@@ -66,6 +68,12 @@ class SourcesViewController: UIViewController {
                 self?.handle(error: error)
             }
         }
+    }
+    
+    func openSafari(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        let svc = SFSafariViewController(url: url)
+        self.present(svc, animated: true, completion: nil)
     }
     
 }
