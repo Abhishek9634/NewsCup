@@ -27,15 +27,16 @@ class SourcesViewController: UIViewController {
     
     func setuptableView() {
         
+        self.tableView.register(SourceTableViewCell.defaultNib,
+                                forCellReuseIdentifier: SourceTableViewCell.defaultReuseIdentifier)
+        
+        
         // SETUP CELL
-        _ = self.sources.asObservable().bind(to: tableView.rx.items) { (tableView: UITableView,
-                                                                        index: Int,
-                                                                        element: Source) in
-            let cell = SourceTableViewCell(style: .default,
-                                           reuseIdentifier: SourceTableViewCell.defaultReuseIdentifier)
+        _ = self.sources.bind(to: self.tableView.rx.items(cellIdentifier: SourceTableViewCell.defaultReuseIdentifier,
+                                                          cellType: SourceTableViewCell.self)) { row, element, cell in
             cell.item = element
-            return cell
         }
+        
         
         // DID SELECT
         self.tableView.rx
@@ -44,11 +45,14 @@ class SourcesViewController: UIViewController {
             print("\(model) was selected")
         }).disposed(by: self.disaposeBag)
         
+        
+        
         // RELOADING TABLE
         _ = self.sources.subscribe(onNext: {
             print("Publish Subject : \($0)")
             self.tableView.reloadData()
         }).disposed(by: self.disaposeBag)
+        
     }
 
     func fetchSources() {
