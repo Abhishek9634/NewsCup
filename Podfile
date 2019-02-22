@@ -9,8 +9,8 @@ target 'NewsCup' do
     pod 'MBProgressHUD', '~> 1.0'
     pod 'SDWebImage', '~> 4.0'
     pod 'BSKeyboardControls', '~> 2.2'
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
+    pod 'RxSwift', '~> 4.0'
+    pod 'RxCocoa', '~> 4.0'
 end
 
 target 'Model' do
