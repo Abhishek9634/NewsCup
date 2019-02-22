@@ -19,6 +19,7 @@ class SourcesViewController: UIViewController {
     let disaposeBag = DisposeBag()
     
     var sources = PublishSubject<[Source]>()
+//    var sources = BehaviorRelay<[Source]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class SourcesViewController: UIViewController {
             switch result {
             case .success(let response):
                 self?.sources.onNext(response.list)
+//                self?.sources.accept(response.list)
             case .failure(let error):
                 self?.handle(error: error)
             }
@@ -75,6 +77,16 @@ class SourcesViewController: UIViewController {
         guard let url = URL(string: urlString) else { return }
         let svc = SFSafariViewController(url: url)
         self.present(svc, animated: true, completion: nil)
+    }
+    
+    func loadMore(list: [Source]) {
+//        CASE LOAD MORE IN BEHAVIOUR RELAY
+//        var items = self.sources.value
+//        items.append(contentsOf: list)
+//        self.sources.accept(items)
+        
+        
+        
     }
     
 }
