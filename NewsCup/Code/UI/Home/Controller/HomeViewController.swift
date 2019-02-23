@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         }
         
         self.showLoader()
-        Headline.fetchTopHeadlines(categories: categories,
+        Article.fetchTopHeadlines(categories: categories,
                                    countries: countries) { [weak self] (result) in
             self?.hideLoader()
             switch result {

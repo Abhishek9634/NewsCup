@@ -65,7 +65,7 @@ class FilterViewModel {
     init() { }
     
     func getFilters(completion: @escaping (_ success: Bool) -> Void) {
-        Headline.fetchParams { (result) in
+        Article.fetchParams { (result) in
             switch result {
             case .success(let param):
                 self.setupData(param)

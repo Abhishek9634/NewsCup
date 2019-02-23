@@ -1,5 +1,5 @@
 //
-//  Headline+API.swift
+//  Article+API.swift
 //  Model
 //
 //  Created by Abhishek Thapliyal on 12/12/18.
@@ -9,11 +9,7 @@
 import Foundation
 import FoxAPIKit
 
-public struct Headline {
-    
-}
-
-public extension Headline {
+public extension Article {
     
     static func fetchParams(completion: @escaping APICompletion<HeadlinesRequestParam>) {
         NewsCupAPIClient.shared.requestOffline(jsonfileName: "Headlines", completion: completion)
@@ -21,7 +17,7 @@ public extension Headline {
     
 }
 
-public extension Headline {
+public extension Article {
     
     static func fetchTopHeadlines(page: Int = 0,
                                   pageSize: Int = DefaultPageSize,
