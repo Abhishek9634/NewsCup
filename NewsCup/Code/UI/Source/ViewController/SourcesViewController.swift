@@ -56,7 +56,7 @@ class SourcesViewController: UIViewController {
         
         // RELOADING TABLE
         _ = self.sources.subscribe(onNext: {
-            print("Publish Subject : \($0)")
+            print("Behaviour Relay: \($0)")
             self.tableView.reloadData()
         }).disposed(by: self.disaposeBag)
         

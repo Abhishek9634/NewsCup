@@ -81,7 +81,7 @@ extension SourceHeadlinesViewController {
         
         // RELOADING TABLE
         _ = self.news.subscribe(onNext: {
-            print("Publish Subject : \($0)")
+            print("Behaviour Relay: \($0)")
             self.tableView.reloadData()
         }).disposed(by: self.disaposeBag)
         
