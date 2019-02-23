@@ -12,10 +12,13 @@ import FoxAPIKit
 public enum SourceRouter: BaseRouter {
     
     case fetchSources
+    case sourceTopHeadlines(source: String,
+        page: Int,
+        pageSize: Int)
     
     public var method: HTTPMethod {
         switch self {
-        case .fetchSources:
+        case .fetchSources, .sourceTopHeadlines:
             return .get
         }
     }
@@ -24,6 +27,8 @@ public enum SourceRouter: BaseRouter {
         switch self {
         case .fetchSources:
             return "/v2/sources"
+        case .sourceTopHeadlines:
+            return "/v2/top-headlines"
         }
     }
     
@@ -32,6 +37,12 @@ public enum SourceRouter: BaseRouter {
         switch self {
         case .fetchSources:
             break
+        case .sourceTopHeadlines(let source,
+                                 let page,
+                                 let pageSize):
+            params["page"] = page
+            params["pageSize"] = pageSize
+            params["sources"] = source
         }
         return params
     }
@@ -42,7 +53,8 @@ public enum SourceRouter: BaseRouter {
     
     public var keypathToMap: String? {
         switch self {
-        case .fetchSources:
+        case .fetchSources,
+             .sourceTopHeadlines:
             return "sources"
         }
     }

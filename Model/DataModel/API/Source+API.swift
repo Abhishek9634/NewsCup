@@ -15,5 +15,16 @@ public extension Source {
         let router = SourceRouter.fetchSources
         NewsCupAPIClient.shared.request(router, completion: completion)
     }
+ 
+    static func sourceTopHeadlines(for source: String,
+                                   page: Int = 0,
+                                   pageSize: Int = DefaultPageSize,
+                                   comletion: @escaping APICompletion<ListResponse<Article>>) {
+        
+        let router = SourceRouter.sourceTopHeadlines(source: source,
+                                                     page: page,
+                                                     pageSize: pageSize)
+        NewsCupAPIClient.shared.request(router, completion: comletion)
+    }
     
 }
