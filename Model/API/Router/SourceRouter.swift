@@ -53,9 +53,10 @@ public enum SourceRouter: BaseRouter {
     
     public var keypathToMap: String? {
         switch self {
-        case .fetchSources,
-             .sourceTopHeadlines:
+        case .fetchSources:
             return "sources"
+        case .sourceTopHeadlines:
+            return "articles"
         }
     }
 }

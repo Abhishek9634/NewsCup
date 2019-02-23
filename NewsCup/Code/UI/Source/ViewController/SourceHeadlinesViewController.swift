@@ -72,7 +72,7 @@ extension SourceHeadlinesViewController {
         
         // DID SELECT
         self.tableView.rx
-            .modelSelected(Source.self)
+            .modelSelected(TopNewsCellModel.self)
             .subscribe(onNext: { model in
                 print("\(model) was selected")
                 self.performSegue(withIdentifier: Segue.NewsDetail, sender: model)
