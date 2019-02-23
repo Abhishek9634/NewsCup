@@ -21,6 +21,8 @@
 		9F30DA6921C3CFE700A13E3A /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F30DA6821C3CFE700A13E3A /* NewsDetailViewController.swift */; };
 		9F485126221FB428008BD1C3 /* SourceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F485125221FB428008BD1C3 /* SourceRouter.swift */; };
 		9F48512A221FC01C008BD1C3 /* SourceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F485128221FC01C008BD1C3 /* SourceTableViewCell.xib */; };
+		9F505C27222154E200AF47DB /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F505C25222154E200AF47DB /* PullToRefresh.swift */; };
+		9F505C28222154E200AF47DB /* PaginationUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F505C26222154E200AF47DB /* PaginationUIManager.swift */; };
 		9F89D40A21C4F8FD006F72B6 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F89D40921C4F8FD006F72B6 /* Root.storyboard */; };
 		9F89D40D21C4F922006F72B6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89D40C21C4F922006F72B6 /* RootViewController.swift */; };
 		9F89D41121C4F9C7006F72B6 /* Source.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F89D41021C4F9C7006F72B6 /* Source.storyboard */; };
@@ -115,6 +117,8 @@
 		9F30DA6821C3CFE700A13E3A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		9F485125221FB428008BD1C3 /* SourceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRouter.swift; sourceTree = "<group>"; };
 		9F485128221FC01C008BD1C3 /* SourceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceTableViewCell.xib; sourceTree = "<group>"; };
+		9F505C25222154E200AF47DB /* PullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
+		9F505C26222154E200AF47DB /* PaginationUIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationUIManager.swift; sourceTree = "<group>"; };
 		9F89D40921C4F8FD006F72B6 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		9F89D40C21C4F922006F72B6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		9F89D41021C4F9C7006F72B6 /* Source.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Source.storyboard; sourceTree = "<group>"; };
@@ -286,6 +290,15 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		9F505C24222154E200AF47DB /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				9F505C25222154E200AF47DB /* PullToRefresh.swift */,
+				9F505C26222154E200AF47DB /* PaginationUIManager.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
 		9F89D40821C4F8ED006F72B6 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +425,7 @@
 		9FAADC6A219C6D0800B7DD30 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9F505C24222154E200AF47DB /* Pagination */,
 				9FAADC6B219C6D0800B7DD30 /* CollectionCell */,
 				9FAADC6D219C6D0800B7DD30 /* ImageView */,
 				9FAADC6F219C6D0800B7DD30 /* TableCell */,
@@ -708,6 +722,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AnyErrorKit/AnyErrorKit.framework",
@@ -727,6 +742,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnyErrorKit.framework",
@@ -789,12 +805,14 @@
 				9FAADC54219C4E0F00B7DD30 /* AppDelegate.swift in Sources */,
 				9FB40A7321C24E080050E2DE /* FilterViewController.swift in Sources */,
 				9F30DA6521C3CED800A13E3A /* NewsDetailDescriptionTableViewCell.swift in Sources */,
+				9F505C28222154E200AF47DB /* PaginationUIManager.swift in Sources */,
 				9FA57DC7221F1EF900326B17 /* SourcesViewController.swift in Sources */,
 				9F30DA6921C3CFE700A13E3A /* NewsDetailViewController.swift in Sources */,
 				9F05A38A21C12ECB00ACF0A8 /* HomeViewController.swift in Sources */,
 				9FAADC91219C6D2700B7DD30 /* Date+Helper.swift in Sources */,
 				9FA57DCB221F25DF00326B17 /* SourceTableViewCell.swift in Sources */,
 				9FAADC79219C6D0900B7DD30 /* Loader.swift in Sources */,
+				9F505C27222154E200AF47DB /* PullToRefresh.swift in Sources */,
 				9FAADC75219C6D0800B7DD30 /* CollectionViewCell.swift in Sources */,
 				9FAADC93219C6D2700B7DD30 /* UIView+Slider.swift in Sources */,
 			);

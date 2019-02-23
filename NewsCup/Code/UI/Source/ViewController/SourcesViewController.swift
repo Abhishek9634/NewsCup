@@ -18,8 +18,7 @@ class SourcesViewController: UIViewController {
     
     let disaposeBag = DisposeBag()
     
-    var sources = PublishSubject<[Source]>()
-//    var sources = BehaviorRelay<[Source]>(value: [])
+    var sources = BehaviorRelay<[Source]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +64,7 @@ class SourcesViewController: UIViewController {
             self?.hideLoader()
             switch result {
             case .success(let response):
-                self?.sources.onNext(response.list)
-//                self?.sources.accept(response.list)
+                self?.sources.accept(response.list)
             case .failure(let error):
                 self?.handle(error: error)
             }
@@ -84,9 +82,6 @@ class SourcesViewController: UIViewController {
 //        var items = self.sources.value
 //        items.append(contentsOf: list)
 //        self.sources.accept(items)
-        
-        
-        
     }
     
 }

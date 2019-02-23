@@ -26,6 +26,7 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - SSPullToRefresh (1.3.0)
   - SwiftyJSON (4.2.0)
   - XCGLogger (6.0.4):
     - XCGLogger/Core (= 6.0.4)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SDWebImage (~> 4.0)
+  - SSPullToRefresh (~> 1.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -55,6 +57,7 @@ SPEC REPOS:
     - RxCocoa
     - RxSwift
     - SDWebImage
+    - SSPullToRefresh
     - SwiftyJSON
     - XCGLogger
 
@@ -99,9 +102,10 @@ SPEC CHECKSUMS:
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SSPullToRefresh: 3a47e116692b60e7da5a8c60418488133bcc9550
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
 
-PODFILE CHECKSUM: 7976d48043e7fdf7c92b5abf804b993d6627b117
+PODFILE CHECKSUM: 7a30ec9f0b83508be944d838f9e8060845b26736
 
 COCOAPODS: 1.5.3

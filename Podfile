@@ -11,6 +11,7 @@ target 'NewsCup' do
     pod 'BSKeyboardControls', '~> 2.2'
     pod 'RxSwift', '~> 4.0'
     pod 'RxCocoa', '~> 4.0'
+    pod 'SSPullToRefresh', '~> 1.3'
 end
 
 target 'Model' do
