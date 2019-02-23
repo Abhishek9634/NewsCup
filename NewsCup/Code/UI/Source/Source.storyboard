@@ -35,11 +35,51 @@
                     <navigationItem key="navigationItem" id="vlP-nA-vqL"/>
                     <connections>
                         <outlet property="tableView" destination="5S9-Dm-Irz" id="OxP-m7-AR1"/>
+                        <segue destination="8bD-XX-m9G" kind="show" identifier="SourceTopNewsViewSegueId" id="OCM-0B-2vg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhw-0C-e2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="912.79999999999995" y="115.59220389805098"/>
+        </scene>
+        <!--NewsDetailViewController-->
+        <scene sceneID="jZb-9M-fCz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NewsDetailViewController" id="Bp9-2C-XDG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQC-FG-pJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1849" y="605"/>
+        </scene>
+        <!--Source Headlines View Controller-->
+        <scene sceneID="23X-EF-63z">
+            <objects>
+                <viewController storyboardIdentifier="SourceHeadlinesViewController" id="8bD-XX-m9G" customClass="SourceHeadlinesViewController" customModule="NewsCup" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2QB-0M-Y5w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="veF-T3-LEg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="veF-T3-LEg" firstAttribute="bottom" secondItem="caS-zP-PzC" secondAttribute="bottom" id="0DJ-Ls-52I"/>
+                            <constraint firstItem="veF-T3-LEg" firstAttribute="trailing" secondItem="caS-zP-PzC" secondAttribute="trailing" id="CJR-qr-zR0"/>
+                            <constraint firstItem="veF-T3-LEg" firstAttribute="top" secondItem="2QB-0M-Y5w" secondAttribute="top" id="e7A-di-b9v"/>
+                            <constraint firstItem="veF-T3-LEg" firstAttribute="leading" secondItem="caS-zP-PzC" secondAttribute="leading" id="q2t-ik-XSm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="caS-zP-PzC"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="veF-T3-LEg" id="9YX-KD-8DV"/>
+                        <segue destination="Bp9-2C-XDG" kind="show" identifier="SourceTopNewsDetailViewSegueId" id="9tw-yc-Y6e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWU-jx-l0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1848.8" y="115.59220389805098"/>
         </scene>
         <!--Source-->
         <scene sceneID="yYG-SA-gSx">

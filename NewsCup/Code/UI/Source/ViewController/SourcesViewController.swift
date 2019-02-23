@@ -20,6 +20,10 @@ class SourcesViewController: UIViewController {
     
     var sources = BehaviorRelay<[Source]>(value: [])
     
+    private struct Segue {
+        static let NewsList = "SourceTopNewsViewSegueId"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setuptableView()
@@ -45,7 +49,7 @@ class SourcesViewController: UIViewController {
             .modelSelected(Source.self)
             .subscribe(onNext: { model in
             print("\(model) was selected")
-            self.openSafari(urlString: model.url)
+            self.performSegue(withIdentifier: Segue.NewsList, sender: model)
         }).disposed(by: self.disaposeBag)
         
         
@@ -71,17 +75,27 @@ class SourcesViewController: UIViewController {
         }
     }
     
-    func openSafari(urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        let svc = SFSafariViewController(url: url)
-        self.present(svc, animated: true, completion: nil)
-    }
-    
     func loadMore(list: [Source]) {
 //        CASE LOAD MORE IN BEHAVIOUR RELAY
 //        var items = self.sources.value
 //        items.append(contentsOf: list)
 //        self.sources.accept(items)
+    }
+    
+}
+
+extension SourcesViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch (segue.identifier, segue.destination, sender) {
+        case (Segue.NewsList,
+              let vc as SourceHeadlinesViewController,
+              let model as Source):
+            vc.source = model.id
+        default:
+            break
+        }
+        super.prepare(for: segue, sender: sender)
     }
     
 }
