@@ -50,6 +50,9 @@ extension NewsDetailViewController: UITableViewDelegate, UITableViewDataSource {
     private func setupView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        if #available(iOS 11.0, *) {
+            self.navigationItem.largeTitleDisplayMode = .never
+        }
     }
     
     func tableView(_ tableView: UITableView,

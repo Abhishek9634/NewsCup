@@ -55,6 +55,10 @@ extension SourceHeadlinesViewController {
     
     private func setupView() {
         
+        // DISBALE LARGE TILE
+        if #available(iOS 11.0, *) {
+            self.navigationItem.largeTitleDisplayMode = .never
+        }
         
         // REGISTER CELL
         self.tableView.register(TopNewsTableViewCell.defaultNib,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bTn-m5-QfY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bTn-m5-QfY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,16 +50,16 @@
             </objects>
             <point key="canvasLocation" x="1849" y="605"/>
         </scene>
-        <!--Source Headlines View Controller-->
+        <!--Headlines-->
         <scene sceneID="23X-EF-63z">
             <objects>
-                <viewController storyboardIdentifier="SourceHeadlinesViewController" id="8bD-XX-m9G" customClass="SourceHeadlinesViewController" customModule="NewsCup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SourceHeadlinesViewController" hidesBottomBarWhenPushed="YES" id="8bD-XX-m9G" customClass="SourceHeadlinesViewController" customModule="NewsCup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2QB-0M-Y5w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="veF-T3-LEg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -72,6 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="caS-zP-PzC"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Headlines" id="gzD-h0-ulQ"/>
                     <connections>
                         <outlet property="tableView" destination="veF-T3-LEg" id="9YX-KD-8DV"/>
                         <segue destination="Bp9-2C-XDG" kind="show" identifier="SourceTopNewsDetailViewSegueId" id="9tw-yc-Y6e"/>
