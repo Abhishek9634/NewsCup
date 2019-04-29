@@ -16,6 +16,11 @@ class SourcesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var paginationManager: PaginationUIManager?
+    private var isDragging: Bool {
+        return self.tableView.isDragging
+    }
+    
     let disaposeBag = DisposeBag()
     
     var sources = BehaviorRelay<[Source]>(value: [])
@@ -27,9 +32,8 @@ class SourcesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setuptableView()
-//        self.fetchSources()
-        // VIA RxSWIFT
-        self.rxfetchSources()
+        self.setupPagination()
+        self.fetchItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,10 +86,9 @@ class SourcesViewController: UIViewController {
         }
     }
     
-    func rxfetchSources() {
-        self.showLoader()
+    func rxfetchSources(completion: @escaping (Bool) -> Void) {
+        if !self.isDragging { self.showLoader() }
         let observable = Source.fetchSources()
-            
         _ = observable.subscribe( { [weak self] (element) in
             self?.hideLoader()
             switch element {
@@ -96,6 +99,7 @@ class SourcesViewController: UIViewController {
             default:
                 break
             }
+            completion(true)
         }).disposed(by: self.disaposeBag)
     }
     
@@ -120,6 +124,27 @@ extension SourcesViewController {
             break
         }
         super.prepare(for: segue, sender: sender)
+    }
+    
+}
+
+extension SourcesViewController: PaginationUIManagerDelegate {
+    
+    private func setupPagination() {
+        self.paginationManager = PaginationUIManager(scrollView: self.tableView)
+        self.paginationManager?.delegate = self
+    }
+    
+    private func fetchItems() {
+        self.paginationManager?.load { }
+    }
+    
+    func refreshAll(completion: @escaping (_ hasMoreData: Bool) -> Void) {
+        self.rxfetchSources(completion: completion)
+    }
+    
+    func loadMore(completion: @escaping (_ hasMoreData: Bool) -> Void) {
+        completion(false)
     }
     
 }
