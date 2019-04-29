@@ -95,7 +95,12 @@ class SourcesViewController: UIViewController {
             case .next(let list):
                 self?.sources.accept(list)
             case .error(let error):
-                self?.handle(error: AppError.customER(error: error as! ErrorResponse))
+                switch error {
+                case let err as ErrorResponse:
+                    self?.handle(error: err)
+                default:
+                    print("Error: \(error)")
+                }
             default:
                 break
             }
