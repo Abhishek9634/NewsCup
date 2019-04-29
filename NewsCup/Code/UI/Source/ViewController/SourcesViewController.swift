@@ -63,7 +63,7 @@ class SourcesViewController: UIViewController {
         
         // RELOADING TABLE
         _ = self.sources.subscribe(onNext: {
-            print("Behaviour Relay: \($0)")
+            print("Behaviour Relay: \($0.count)")
             self.tableView.reloadData()
         }).disposed(by: self.disaposeBag)
         
@@ -84,7 +84,9 @@ class SourcesViewController: UIViewController {
     
     func rxfetchSources() {
         self.showLoader()
-        _ = Source.fetchSources().subscribe( { [weak self] (element) in
+        let observable = Source.fetchSources()
+            
+        _ = observable.subscribe( { [weak self] (element) in
             self?.hideLoader()
             switch element {
             case .next(let list):
