@@ -27,7 +27,9 @@ class SourcesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setuptableView()
-        self.fetchSources()
+//        self.fetchSources()
+        // VIA RxSWIFT
+        self.rxfetchSources()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +80,21 @@ class SourcesViewController: UIViewController {
                 self?.handle(error: error)
             }
         }
+    }
+    
+    func rxfetchSources() {
+        self.showLoader()
+        _ = Source.fetchSources().subscribe( { [weak self] (element) in
+            self?.hideLoader()
+            switch element {
+            case .next(let list):
+                self?.sources.accept(list)
+            case .error(let error):
+                self?.showErrorAlert(error: error as NSError)
+            default:
+                break
+            }
+        }).disposed(by: self.disaposeBag)
     }
     
     func loadMore(list: [Source]) {

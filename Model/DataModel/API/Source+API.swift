@@ -8,10 +8,11 @@
 
 import Foundation
 import FoxAPIKit
+import RxSwift
 
 public extension Source {
     
-    public static func fetchSources(completion: @escaping APICompletion<ListResponse<Source>>) {
+    static func fetchSources(completion: @escaping APICompletion<ListResponse<Source>>) {
         let router = SourceRouter.fetchSources
         NewsCupAPIClient.shared.request(router, completion: completion)
     }
@@ -25,6 +26,27 @@ public extension Source {
                                                      page: page,
                                                      pageSize: pageSize)
         NewsCupAPIClient.shared.request(router, completion: comletion)
+    }
+    
+}
+
+// RxSwift
+public extension Source {
+    
+    static func fetchSources() -> Observable<[Source]> {
+        return Observable<[Source]>.create { observer in
+            let router = SourceRouter.fetchSources
+            NewsCupAPIClient.shared.request(router, completion: { (result: APIResult<ListResponse<Source>>) in
+                switch result {
+                case .success(let response):
+                    observer.onNext(response.list)
+                case .failure(let error):
+                    observer.onError(error)
+                }
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        }
     }
     
 }

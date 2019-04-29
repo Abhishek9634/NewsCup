@@ -12,15 +12,35 @@ public enum APIError: AnyError {
 	
     case unknown
     case custom(message: String)
+    case customError(error: AnyError)
 	
-	public var code: Int { return 0 }
-	public var domain: String { return "API Error" }
+	public var code: Int {
+        switch self {
+        case .customError(let error):
+            return error.code
+        default:
+            return 0
+        }
+    }
+    
+    public var domain: String {
+        switch self {
+        case .customError(let error):
+            return error.domain
+        default:
+            return "API Error"
+        }
+    }
+    
 	public var message: String {
-		switch self {
-		case .unknown:
-            return "Something went wrong. Please tray again."
+        switch self {
+        case .customError(let error):
+            return error.domain
         case .custom(let message):
             return message
-		}
+        default:
+            return "Something went wrong. Please tray again."
+        }
 	}
+    
 }
