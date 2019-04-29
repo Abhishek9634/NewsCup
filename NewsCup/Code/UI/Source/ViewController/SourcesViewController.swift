@@ -92,7 +92,7 @@ class SourcesViewController: UIViewController {
             case .next(let list):
                 self?.sources.accept(list)
             case .error(let error):
-                self?.showErrorAlert(error: error as NSError)
+                self?.handle(error: AppError.customER(error: error as! ErrorResponse))
             default:
                 break
             }
